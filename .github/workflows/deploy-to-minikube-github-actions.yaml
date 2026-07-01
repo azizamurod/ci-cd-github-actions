@@ -19,13 +19,6 @@ jobs:
           docker build -f ./Dockerfile -t devopshint/node-app:latest .
           echo -n "verifying images:"
           docker images         
-    - name: List files
-      run: |
-        ls -la
-        find . -type f
-    - name: Show exact filename
-      run: |
-        ls -lb
     - name: Deploy to minikube
       run:
         kubectl apply -f k8s-node-app.yaml
